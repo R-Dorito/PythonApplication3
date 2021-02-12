@@ -20,8 +20,20 @@ url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = read_csv(url, names=names)
 
+#Tells us how many
 print(dataset.shape)
+#Shows the first 20 data points
 print(dataset.head(20))
+#Returns the mean standard dev and others 
 print(dataset.describe())
+#What classes does each data belong to, and what size
 print(dataset.groupby('class').size())
+
+#Create a box plot for each item
+dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+#Histogram
+dataset.hist()
+#Matrix scatter plot. Not too sure what this one is
+scatter_matrix(dataset)
+pyplot.show()
 
